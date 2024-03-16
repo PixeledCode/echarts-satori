@@ -4,6 +4,7 @@ import { domToURI, downloadFile } from '@/lib/utils'
 import { EChartsOption } from 'echarts-for-react'
 import { ChartTemplate } from './ChartTemplate'
 import { reactToSVG } from '@/lib/satori'
+import { Button } from './Button'
 
 export default function Download({
 	chartOptions,
@@ -26,23 +27,18 @@ export default function Download({
 		const template = await reactToSVG(
 			<ChartTemplate data={imageURI} title={'Randomly generated Title'} />,
 			{
-				width: 1270,
+				width: 1920,
 			}
 		)
 
 		// convert the svg string to a Data URI and download it
-		const templateURI = await domToURI(template, 'svg')
-		downloadFile(templateURI, 'chart.svg')
+		const templateURI = await domToURI(template, 'png')
+		downloadFile(templateURI, 'chart.png')
 	}
 
 	return (
 		<div className="flex items-center justify-center">
-			<button
-				onClick={handleClick}
-				className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-			>
-				Download
-			</button>
+			<Button onClick={handleClick}>Download</Button>
 		</div>
 	)
 }
