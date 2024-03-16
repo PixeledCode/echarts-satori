@@ -1,6 +1,6 @@
 'use client'
 
-import { domToURI, downloadFile } from '@/utils/download'
+import { domToURI, downloadFile } from '@/lib/utils'
 import { EChartsOption } from 'echarts-for-react'
 
 export default function Download({ options }: { options: EChartsOption }) {
@@ -13,8 +13,8 @@ export default function Download({ options }: { options: EChartsOption }) {
 			body: JSON.stringify(options),
 		}).then((res) => res.text())
 
+		// convert the svg string to a Data URI and download it
 		const imageURI = await domToURI(data, 'svg')
-
 		downloadFile(imageURI, 'chart.svg')
 	}
 
