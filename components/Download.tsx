@@ -17,7 +17,7 @@ import {
 import { Skeleton } from "./Skeleton";
 import { Input } from "./Input";
 import { Label } from "./Label";
-import { DownloadIcon } from "lucide-react";
+import { DownloadIcon, Loader2Icon } from "lucide-react";
 
 export default function Download({
   chartOptions,
@@ -102,6 +102,7 @@ export default function Download({
               onChange={handleTitleChange}
             />
           </div>
+
           {satoriURI.uri.length > 0 ? (
             <img
               height={300}
@@ -110,7 +111,12 @@ export default function Download({
               className="w-full"
             />
           ) : (
-            <Skeleton className="h-[300px]" />
+            <Skeleton className="h-[300px]">
+              <div className="flex justify-center items-center h-full">
+                Loading
+                <Loader2Icon className="animate-spin h-4 w-4 ml-2" />
+              </div>
+            </Skeleton>
           )}
 
           <div className="flex flex-wrap gap-2 justify-end">
