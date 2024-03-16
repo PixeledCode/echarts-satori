@@ -5,13 +5,17 @@ import { EChartsOption } from 'echarts-for-react'
 import { ChartTemplate } from './ChartTemplate'
 import { reactToSVG } from '@/lib/satori'
 import { Button } from './Button'
+import React from 'react'
 
 export default function Download({
 	chartOptions,
 }: {
 	chartOptions: EChartsOption
 }) {
+	const [loading, setLoading] = React.useState(false)
+
 	async function handleClick() {
+		setLoading(true)
 		const data = await fetch('/api/chart', {
 			method: 'POST',
 			headers: {
@@ -32,13 +36,16 @@ export default function Download({
 		)
 
 		// convert the svg string to a Data URI and download it
-		const templateURI = await domToURI(template, 'png')
-		downloadFile(templateURI, 'chart.png')
+		const templateURI = await domToURI(template, 'svg')
+		downloadFile(templateURI, 'chart.svg')
+		setLoading(false)
 	}
 
 	return (
 		<div className="flex items-center justify-center">
-			<Button onClick={handleClick}>Download</Button>
+			<Button loading={loading} onClick={handleClick}>
+				Download
+			</Button>
 		</div>
 	)
 }
