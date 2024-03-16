@@ -31,7 +31,7 @@ export default function Download({
 		const template = await reactToSVG(
 			<ChartTemplate data={imageURI} title={'Randomly generated Title'} />,
 			{
-				width: 1920,
+				width: 1270,
 			}
 		)
 
