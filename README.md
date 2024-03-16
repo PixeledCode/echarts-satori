@@ -1,5 +1,7 @@
 # Echarts Satori
 
+A demo app implementing custom charts using ECharts, Satori and Next.js route handler
+
 ## 1st Part - Setup Project
 
 1. Setup Next.js.
