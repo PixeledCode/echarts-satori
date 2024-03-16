@@ -1,6 +1,6 @@
 import Download from '@/components/Download'
 import { ECharts } from '@/components/ECharts'
-import { chartOptions } from '@/components/data'
+import { chartOptions } from '@/lib/data'
 import React from 'react'
 
 export default function Home() {
