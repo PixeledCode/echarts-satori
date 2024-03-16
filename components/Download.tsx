@@ -108,7 +108,7 @@ export default function Download({
               height={300}
               src={satoriURI.uri}
               alt="chart"
-              className="w-full"
+              className="w-full h-[300px] object-contain"
             />
           ) : (
             <Skeleton className="h-[300px]">
