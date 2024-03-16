@@ -3,23 +3,27 @@
 import { domToURI, downloadFile } from '@/lib/utils'
 import { EChartsOption } from 'echarts-for-react'
 import { ChartTemplate } from './ChartTemplate'
-import { createSvg } from '@/lib/satori'
+import { reactToSVG } from '@/lib/satori'
 
-export default function Download({ options }: { options: EChartsOption }) {
+export default function Download({
+	chartOptions,
+}: {
+	chartOptions: EChartsOption
+}) {
 	async function handleClick() {
 		const data = await fetch('/api/chart', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
 			},
-			body: JSON.stringify(options),
+			body: JSON.stringify(chartOptions),
 		}).then((res) => res.text())
 
 		// convert the svg string to a Data URI
 		const imageURI = await domToURI(data, 'svg')
 
 		// create a svg string with the ChartTemplate component
-		const template = await createSvg(
+		const template = await reactToSVG(
 			<ChartTemplate data={imageURI} title={'Randomly generated Title'} />,
 			{
 				width: 1270,

@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Echarts Satori
 
-## Getting Started
+## 1st Part - Setup Project
 
-First, run the development server:
+1. Setup Next.js.
+2. Install packages `echarts` and `echarts-for-react`.
+3. Create a component for Echarts that accepts an [chartOptions](./components/data.ts) prop.
+4. Setup the Echart in the [page](./app/page.tsx) route.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 2nd Part - Download Chart
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Create a route handler at `api/chart/route.ts` that returns an SVG string of the chart.
+2. Implement a Download component that performs a POST request using the `chartOptions`.
+3. Convert the SVG string to either an SVG URI or PNG URI based on the use case.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 3rd Part - Download Custom Chart
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Setup Satori:
 
-## Learn More
+- Install package `satori` and `intl-segmenter-polyfill`.
+- Extend the global `window` interface with `__resource` [typings.d.ts](./typings.d.ts).
+- Add the font file using by satori to the `public` directory.
 
-To learn more about Next.js, take a look at the following resources:
+2. Creaye a `reactToSVG` function that converts a React component to an SVG string [satori](./lib/satori.ts)
+3. Add a React Template to customize the chart [ChartTemplate](./components/ChartTemplate.tsx).
+4. Pass the template to Satori using `reactToSVG` to generate an SVG string of the customized chart.
+5. Convert the SVG string to a data URI and download it.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 4th Part - Improvement
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Instead of returning an SVG string from route handler, you can return a data URI directly so that we can skip one function call.

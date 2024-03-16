@@ -6,8 +6,8 @@ import React from 'react'
 export default function Home() {
 	return (
 		<main className="flex min-h-screen flex-col items-center justify-between p-24">
-			<ECharts options={chartOptions} />
-			<Download options={chartOptions} />
+			<ECharts chartOptions={chartOptions} />
+			<Download chartOptions={chartOptions} />
 		</main>
 	)
 }

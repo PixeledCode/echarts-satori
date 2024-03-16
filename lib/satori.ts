@@ -1,7 +1,7 @@
 import satori from 'satori'
 import { createIntlSegmenterPolyfill } from 'intl-segmenter-polyfill'
 
-export const createSvg = async (
+export const reactToSVG = async (
 	Component: React.ReactElement,
 	props: { width: number; height?: number }
 ) => {

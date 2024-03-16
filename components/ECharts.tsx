@@ -26,12 +26,12 @@ echarts.use([
 	UniversalTransition,
 ])
 
-export function ECharts({ options }: { options: EChartsOption }) {
+export function ECharts({ chartOptions }: { chartOptions: EChartsOption }) {
 	return (
 		<div className="h-[500px] w-full">
 			<ReactEChartsCore
 				echarts={echarts}
-				option={options}
+				option={chartOptions}
 				notMerge={true}
 				lazyUpdate={true}
 				style={{ height: '100%', width: '100%' }}
