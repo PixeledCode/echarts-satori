@@ -1,4 +1,5 @@
 let echarts = require('echarts')
+let fs = require('fs')
 
 export async function POST(request: Request) {
 	// get the chart options
@@ -8,7 +9,7 @@ export async function POST(request: Request) {
 	const chartOptions = { ...data, animation: false }
 
 	// create a new chart instance
-	const chart = echarts.init(null, null, {
+	let chart = echarts.init(null, null, {
 		renderer: 'svg',
 		ssr: true, // enable server side rendering
 		width: 1270,
@@ -17,12 +18,18 @@ export async function POST(request: Request) {
 	chart.setOption(chartOptions)
 
 	// convert the chart to an svg string
-	const svg = chart.renderToSVGString()
+	const svgString = chart.renderToSVGString()
 
-	// convert the svg string to base64 to use as Data URL
-	const base64 = btoa(svg)
+	// convert the svg string to base64 to use as Data URI
+	// const dataUriBar = `data:image/svg+xml;base64,${btoa(svgString)}`
 
-	const dataUrlBar = `data:image/svg+xml;base64,${base64}`
+	chart.dispose()
+	chart = null
 
-	return Response.json(dataUrlBar)
+	return new Response(svgString, {
+		status: 200,
+		headers: {
+			'Content-Type': 'application/xml',
+		},
+	})
 }
