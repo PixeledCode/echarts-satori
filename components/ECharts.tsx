@@ -14,6 +14,7 @@ import { LineChart } from "echarts/charts";
 import { UniversalTransition } from "echarts/features";
 import { CanvasRenderer } from "echarts/renderers";
 import type { EChartsOption } from "echarts-for-react";
+import { cn } from "@/lib/utils";
 
 echarts.use([
   TitleComponent,
@@ -26,9 +27,15 @@ echarts.use([
   UniversalTransition,
 ]);
 
-export function ECharts({ chartOptions }: { chartOptions: EChartsOption }) {
+export function ECharts({
+  chartOptions,
+  className,
+}: {
+  chartOptions: EChartsOption;
+  className?: string;
+}) {
   return (
-    <div className="h-[500px] w-full">
+    <div className={cn("h-[500px] w-full", className)}>
       <ReactEChartsCore
         echarts={echarts}
         option={chartOptions}
