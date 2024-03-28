@@ -11,6 +11,7 @@ export const chartOptions = {
   legend: {
     data: ["Email", "Union Ads", "Video Ads", "Direct", "Search Engine"],
   },
+  backgroundColor: "white",
   grid: {
     left: "3%",
     right: "4%",

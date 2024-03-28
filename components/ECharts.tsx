@@ -27,15 +27,18 @@ echarts.use([
   UniversalTransition,
 ]);
 
-export function ECharts({
-  chartOptions,
-  className,
-}: {
-  chartOptions: EChartsOption;
-  className?: string;
-}) {
+export const ECharts = React.forwardRef(function ECharts(
+  {
+    chartOptions,
+    className,
+  }: {
+    chartOptions: EChartsOption;
+    className?: string;
+  },
+  ref?: React.Ref<HTMLDivElement>
+) {
   return (
-    <div className={cn("h-[500px] w-full", className)}>
+    <div className={cn("h-[500px] w-full", className)} ref={ref}>
       <ReactEChartsCore
         echarts={echarts}
         option={chartOptions}
@@ -45,4 +48,4 @@ export function ECharts({
       />
     </div>
   );
-}
+});
