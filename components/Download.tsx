@@ -41,6 +41,7 @@ export default function Download({
 
     // convert the svg string to a Data URI
     const imageURI = await domToURI(data, "svg");
+
     setImageURI(imageURI);
     // create a svg string with the ChartTemplate component
     await generateSatoriURI({ uri: imageURI, title });
@@ -64,6 +65,7 @@ export default function Download({
         width: 1270,
       }
     );
+
     const templateURI = await domToURI(template, "svg");
     setSatoriURI({
       uri: templateURI,
@@ -94,7 +96,7 @@ export default function Download({
             </DialogDescription>
           </DialogHeader>
 
-          <div className="grid w-full max-w-sm items-center gap-1.5 mb-2">
+          <div className="grid w-full max-w-3xl items-center gap-1.5 mb-2">
             <Label htmlFor="title">Chart Title</Label>
             <Input
               type="title"
@@ -110,10 +112,10 @@ export default function Download({
               height={300}
               src={satoriURI.uri}
               alt="chart"
-              className="w-full h-[300px] object-contain"
+              className="w-full h-[600px] object-contain -ml-3"
             />
           ) : (
-            <Skeleton className="h-[300px]">
+            <Skeleton className="h-[600px]">
               <div className="flex justify-center items-center h-full">
                 Loading
                 <Loader2Icon className="animate-spin h-4 w-4 ml-2" />

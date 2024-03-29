@@ -1,5 +1,4 @@
 let echarts = require("echarts");
-let fs = require("fs");
 
 export async function POST(request: Request) {
   // get the chart options
