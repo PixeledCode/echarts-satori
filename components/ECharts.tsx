@@ -10,7 +10,7 @@ import {
   GridComponent,
   LegendComponent,
 } from "echarts/components";
-import { LineChart } from "echarts/charts";
+import { BarChart } from "echarts/charts";
 import { UniversalTransition } from "echarts/features";
 import { CanvasRenderer } from "echarts/renderers";
 import type { EChartsOption } from "echarts-for-react";
@@ -22,7 +22,7 @@ echarts.use([
   TooltipComponent,
   GridComponent,
   LegendComponent,
-  LineChart,
+  BarChart,
   CanvasRenderer,
   UniversalTransition,
 ]);
