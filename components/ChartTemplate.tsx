@@ -1,9 +1,8 @@
 export const ChartTemplate = ({
   data,
   title,
-  props,
 }: {
-  data: string | null;
+  data: string | undefined;
   title: string;
   props?: {
     height: number;
@@ -16,25 +15,138 @@ export const ChartTemplate = ({
         display: "flex",
         flexDirection: "column",
         backgroundColor: "white",
-        gap: "8px",
-        alignItems: "center",
+        paddingTop: "24px",
+        border: "1px solid #cecdd6",
       }}
     >
-      <p
+      <div
         style={{
-          fontSize: "24px",
-          fontWeight: "bold",
-          textAlign: "center",
-          padding: "20px",
+          display: "flex",
+          flexDirection: "column",
+          paddingLeft: "24px",
+          paddingRight: "24px",
+          paddingBottom: "16px",
+          borderBottom: "1px solid #cecdd6",
         }}
       >
-        {title}
-      </p>
-      {data ? (
-        <img src={data} {...props} className="w-full" alt="SVG" />
-      ) : (
-        "Loading..."
-      )}
+        <h1
+          style={{
+            fontSize: "16px",
+            fontWeight: "500",
+            lineHeight: "4px",
+          }}
+        >
+          {title}
+        </h1>
+        <p
+          style={{
+            fontSize: "14px",
+            lineHeight: "4px",
+            fontWeight: "400",
+            marginTop: "8px",
+            display: "flex",
+            gap: "4px",
+          }}
+        >
+          <span
+            style={{
+              color: "#6c6a83",
+            }}
+          >
+            from
+          </span>
+          Batadraba Morigaon Part, Bhurbandha, Dolongghat morigaon Part, Kapili,
+          Laharighat, Mayong, Moirabari
+        </p>
+        <p
+          style={{
+            fontSize: "14px",
+            lineHeight: "4px",
+            fontWeight: "400",
+            marginTop: "8px",
+            display: "flex",
+            gap: "4px",
+          }}
+        >
+          <span
+            style={{
+              color: "#6c6a83",
+            }}
+          >
+            in
+          </span>
+          FY 2023-24
+        </p>
+      </div>
+      <img
+        src={data}
+        width={844}
+        alt="chart"
+        style={{
+          width: "100%",
+          objectFit: "contain",
+        }}
+      />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "8px",
+          marginTop: "16px",
+          paddingLeft: "24px",
+          paddingRight: "24px",
+          borderTop: "1px solid #cecdd6",
+        }}
+      >
+        <p
+          style={{
+            fontSize: "14px",
+            lineHeight: "20px",
+            fontWeight: "400",
+            marginTop: "8px",
+            display: "flex",
+            gap: "4px",
+          }}
+        >
+          <span
+            style={{
+              color: "#6c6a83",
+            }}
+          >
+            accessed on
+          </span>
+          29 March, 2024
+        </p>
+        <div
+          style={{
+            width: "1px",
+            height: "50%",
+            backgroundColor: "#cecdd6",
+            marginTop: "auto",
+            marginBottom: "auto",
+          }}
+        />
+        <p
+          style={{
+            fontSize: "14px",
+            lineHeight: "20px",
+            fontWeight: "400",
+            marginTop: "8px",
+            display: "flex",
+            gap: "4px",
+          }}
+        >
+          <span
+            style={{
+              color: "#6c6a83",
+            }}
+          >
+            last updated on
+          </span>
+          29 December, 2023
+        </p>
+      </div>
     </div>
   );
 };

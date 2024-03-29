@@ -17,10 +17,11 @@ export const reactToSVG = async (
 export async function initFonts() {
   if (typeof window === "undefined") return [];
 
-  const [font, Segmenter] =
+  const [medium, regular, Segmenter] =
     window.__resource ||
     (window.__resource = await Promise.all([
-      fetch("/Inter-Bold.ttf").then((res) => res.arrayBuffer()),
+      fetch("/Inter-Medium.ttf").then((res) => res.arrayBuffer()),
+      fetch("/Inter-Regular.ttf").then((res) => res.arrayBuffer()),
       !globalThis.Intl || !globalThis.Intl.Segmenter
         ? createIntlSegmenterPolyfill(
             fetch(
@@ -42,9 +43,15 @@ export async function initFonts() {
   return [
     {
       name: "Inter",
-      data: font,
-      style: "normal",
-      weight: 700,
+      data: medium,
+      style: "medium",
+      weight: 500,
+    },
+    {
+      name: "Inter",
+      data: regular,
+      style: "regular",
+      weight: 400,
     },
   ];
 }

@@ -1,0 +1,285 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+[data-theme-color="light"] {
+  color-scheme: light;
+  --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  --ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  --ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+  --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+  --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+  --gray1: #fcfcfc;
+  --gray2: #f8f8f8;
+  --gray3: #f3f3f3;
+  --gray4: #ededed;
+  --gray5: #e8e8e8;
+  --gray6: #e2e2e2;
+  --gray7: #dbdbdb;
+  --gray8: #c7c7c7;
+  --gray9: #8f8f8f;
+  --gray10: #858585;
+  --gray11: #6f6f6f;
+  --gray12: #171717;
+  --grayA1: rgba(0, 0, 0, 0.012);
+  --grayA2: rgba(0, 0, 0, 0.027);
+  --grayA3: rgba(0, 0, 0, 0.047);
+  --grayA4: rgba(0, 0, 0, 0.071);
+  --grayA5: rgba(0, 0, 0, 0.09);
+  --grayA6: rgba(0, 0, 0, 0.114);
+  --grayA7: rgba(0, 0, 0, 0.141);
+  --grayA8: rgba(0, 0, 0, 0.22);
+  --grayA9: rgba(0, 0, 0, 0.439);
+  --grayA10: rgba(0, 0, 0, 0.478);
+  --grayA11: rgba(0, 0, 0, 0.565);
+  --grayA12: rgba(0, 0, 0, 0.91);
+
+  --gray100: #0a0631;
+  --gray80: #3b385a;
+  --gray70: #54516f;
+  --gray60: #6c6a83;
+  --gray20: #cecdd6;
+  --gray10: #e6e6ea;
+  --gray3: #f8f8f9;
+
+  --grayA100: hsla(246, 78%, 11%, 100%);
+  --grayA80: hsla(246, 78%, 11%, 80%);
+  --grayA70: hsla(246, 78%, 11%, 70%);
+  --grayA60: hsla(246, 78%, 11%, 60%);
+  --grayA20: hsla(246, 78%, 11%, 20%);
+  --grayA10: hsla(246, 78%, 11%, 10%);
+  --grayA3: hsla(246, 78%, 11%, 3%);
+
+  --accent: #301fd4;
+  --white: #fff;
+  --black: #000;
+
+  --text-dark: var(--gray100);
+  --text-medium: var(--gray80);
+  --text-light: var(--gray70);
+  --text-extra-light: var(--gray60);
+  --text-accent: var(--accent);
+
+  --border-default: var(--gray20);
+  --bg: var(--gray10);
+  --hover: var(--gray3);
+  --selection: var(--grayA4);
+
+  --text-color: var(--gray12);
+  --text-muted: var(--gray11);
+  --text-on-bg: var(--gray12);
+
+  --page-width: 1072px;
+  --talk-width: 1120px;
+  --content-width: 640px;
+  --page-left: auto;
+  --page-top: 128px;
+  --body-margin: 16px;
+
+  --dragram-bg-red: hsl(345deg 85% 90%);
+  --dragram-border-red: hsl(345deg 35% 65%);
+
+  --dragram-bg-blue: hsl(200deg 83% 90%);
+  --dragram-border-blue: hsl(200deg 35% 65%);
+
+  --dragram-bg-yellow: hsl(50deg 100% 90%);
+  --dragram-border-yellow: hsl(50deg 95% 40%);
+
+  --dragram-bg-gray: hsl(260deg 15% 88%);
+  --dragram-border-gray: hsl(265deg 10% 60%);
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+
+    --test: rgb(255, 0, 0);
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .horizontal {
+    @apply flex flex-row;
+  }
+
+  .vertical {
+    @apply flex flex-col;
+  }
+
+  .horizontal.center {
+    @apply justify-center items-center;
+  }
+
+  .vertical.center {
+    @apply justify-center items-center;
+  }
+
+  .main-grid {
+    @apply grid grid-cols-[192px_var(--content-width)_192px] gap-x-6 items-start;
+  }
+
+  .section {
+    @apply max-w-talk px-body-margin mx-auto;
+  }
+
+  @media (max-width: 1024px) {
+    .main-grid {
+      @apply grid-cols-[auto_var(--content-width)_auto] gap-x-4;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .main-grid {
+      @apply vertical justify-start;
+    }
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns:
+    1fr
+    min(1120px, 100%)
+    1fr;
+
+  grid-template-rows: auto 1fr;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper > * {
+  grid-column: 2;
+}
+.full-bleed {
+  width: 100%;
+  grid-column: 1 / 4;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-top: 64px;
+  }
+}
+
+.accentLink {
+  position: relative;
+}
+
+.accentLink span {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .accentLink::before {
+    content: "";
+    position: absolute;
+    left: -0.1px;
+    right: -0.1px;
+    bottom: 0;
+    height: 100%;
+    transform: scaleY(0.1);
+    transition: transform 0.3s var(--ease-out-cubic);
+    transform-origin: bottom;
+    background-color: var(--accent);
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 768px) {
+  .accentLink {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .accentLink:hover::before {
+    transform: scaleY(1);
+  }
+}

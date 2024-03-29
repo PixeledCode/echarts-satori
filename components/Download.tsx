@@ -24,7 +24,9 @@ export default function Download({
 }: {
   chartOptions: EChartsOption;
 }) {
-  const [title, setTitle] = React.useState("Some random title");
+  const [title, setTitle] = React.useState(
+    "No. of households which availed the offer for employment"
+  );
   const [satoriURI, setSatoriURI] = React.useState({ uri: "", template: "" });
   const [imageURI, setImageURI] = React.useState("");
 
