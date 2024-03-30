@@ -9,6 +9,11 @@ export const ChartTemplate = ({
     width: number;
   };
 }) => {
+  const date = new Date();
+  const year = new Intl.DateTimeFormat("en", { year: "numeric" }).format(date);
+  const month = new Intl.DateTimeFormat("en", { month: "short" }).format(date);
+  const day = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(date);
+
   return (
     <div
       style={{
@@ -116,15 +121,14 @@ export const ChartTemplate = ({
           >
             accessed on
           </span>
-          29 March, 2024
+          {`${day} ${month}, ${year}`}
         </p>
         <div
           style={{
             width: "1px",
             height: "50%",
             backgroundColor: "#cecdd6",
-            marginTop: "auto",
-            marginBottom: "auto",
+            marginBottom: "8px",
           }}
         />
         <p
