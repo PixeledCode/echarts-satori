@@ -31,8 +31,6 @@ export const domToURI = async (
   }
 
   const dataImgURL = await svgToPngURI(element, 1);
-  console.log(dataImgURL);
-
   return dataImgURL;
 };
 

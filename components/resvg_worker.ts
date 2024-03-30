@@ -5,7 +5,6 @@ fetch(wasmPath).then((res) => resvg.initWasm(res));
 
 self.onmessage = (e) => {
   const { svg, width, _id } = e.data;
-  console.log(svg, "sdad");
 
   const renderer = new resvg.Resvg(svg, {
     fitTo: {
