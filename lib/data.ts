@@ -25,7 +25,7 @@ export const chartOptions = {
     },
   ],
   color: "rgb(55,162,218)",
-  backgroundColor: "white",
+  backgroundColor: "#fcfcfc",
 
   xAxis: [
     {

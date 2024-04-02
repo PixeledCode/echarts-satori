@@ -1,5 +1,6 @@
 @import "./variables.css";
 
 body {
+  background-color: #fcfcfc;
   color: var(--text-dark);
 }
