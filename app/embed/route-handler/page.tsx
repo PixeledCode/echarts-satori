@@ -10,6 +10,7 @@ export default function Home() {
   const ref = React.useRef<HTMLDivElement>(null);
 
   async function handleDownload() {
+    const t = performance.now();
     const data = await fetch("/api/chart", {
       method: "POST",
       headers: {
@@ -20,6 +21,7 @@ export default function Home() {
 
     const imageURI = await domToURI(data, "png");
     downloadFile(imageURI, "chart.png");
+    console.log("Time taken Route Handler:", performance.now() - t);
   }
 
   return (

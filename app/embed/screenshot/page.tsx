@@ -11,6 +11,7 @@ export default function Home() {
   const ref = React.useRef<HTMLDivElement>(null);
 
   function handleDownload() {
+    const t = performance.now();
     const element = ref.current;
     if (!element) return;
 
@@ -18,6 +19,7 @@ export default function Home() {
       backgroundColor: "white",
     }).then((uri) => {
       downloadFile(uri, "chart.png");
+      console.log("Time taken Screenshot:", performance.now() - t);
     });
   }
   return (

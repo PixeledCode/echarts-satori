@@ -9,6 +9,7 @@ import { reactToSVG } from "@/lib/satori";
 import { ChartTemplate } from "@/components/ChartTemplate";
 
 export default function Home() {
+  const t = performance.now();
   const ref = React.useRef<HTMLDivElement>(null);
 
   async function handleDownload() {
@@ -21,6 +22,7 @@ export default function Home() {
     }).then((res) => res.text());
 
     const imageURI = await domToURI(data, "png");
+    const s = performance.now();
     const template = await reactToSVG(
       <ChartTemplate
         data={imageURI}
@@ -30,10 +32,12 @@ export default function Home() {
         width: 1270,
       }
     );
+    console.log("Time taken Satori:", performance.now() - s);
 
     const templateURI = await domToURI(template, "png");
 
     downloadFile(templateURI, "chart.png");
+    console.log("Time taken Satori + Route:", performance.now() - t);
   }
 
   return (
