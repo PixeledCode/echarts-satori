@@ -9,10 +9,11 @@ import { reactToSVG } from "@/lib/satori";
 import { ChartTemplate } from "@/components/ChartTemplate";
 
 export default function Home() {
-  const t = performance.now();
   const ref = React.useRef<HTMLDivElement>(null);
 
   async function handleDownload() {
+    const t = performance.now();
+
     const data = await fetch("/api/chart", {
       method: "POST",
       headers: {
