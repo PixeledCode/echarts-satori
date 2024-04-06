@@ -37,8 +37,8 @@ export default function Home() {
 
     const templateURI = await domToURI(template, "png");
 
-    downloadFile(templateURI, "chart.png");
     console.log("Time taken Satori + Route:", performance.now() - t);
+    downloadFile(templateURI, "chart.png");
   }
 
   return (

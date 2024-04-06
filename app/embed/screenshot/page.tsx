@@ -18,8 +18,8 @@ export default function Home() {
     domToPng(element, {
       backgroundColor: "white",
     }).then((uri) => {
-      downloadFile(uri, "chart.png");
       console.log("Time taken Screenshot:", performance.now() - t);
+      downloadFile(uri, "chart.png");
     });
   }
   return (

@@ -20,8 +20,8 @@ export default function Home() {
     }).then((res) => res.text());
 
     const imageURI = await domToURI(data, "png");
-    downloadFile(imageURI, "chart.png");
     console.log("Time taken Route Handler:", performance.now() - t);
+    downloadFile(imageURI, "chart.png");
   }
 
   return (
