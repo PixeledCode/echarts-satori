@@ -22,9 +22,6 @@ export async function POST(request: Request) {
   // convert the svg string to base64 to use as Data URI
   // const dataUriBar = `data:image/svg+xml;base64,${btoa(svgString)}`
 
-  chart.dispose();
-  chart = null;
-
   return new Response(svgString, {
     status: 200,
     headers: {
